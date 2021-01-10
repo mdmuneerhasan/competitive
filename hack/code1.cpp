@@ -1,7 +1,7 @@
 /* This code is submitted by Muneer Hasan
 * Computer-scince student ( @ Jamia Millia Islamia : New Delhi)
 * Email : md.muneerhasan@gmail.com
-* 10:12:03 Monday 07-September:2020*/
+* 14:12:44 Sunday 10-January:2021*/
 #include<bits/stdc++.h>
 using namespace std;
 #define int             long long int
@@ -25,16 +25,16 @@ vector<int> vec1,vec2,vec3,primes;
 int n=0,m=0,k=0,n1=0,n2=0,n3=0,stt=0,ent=0,q=0,qry=0;
 
 void Muneer(){
-    int ans=0,cnt=0,x=0,y=0,z=0,a=0,b=0,c=0;
-    
-    
-    
+	int ans=0,cnt=0,x=0,y=0,z=0,a=0,b=0,c=0;
+	
+	
+	
 }
 int32_t main(){
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);cout.tie(NULL);
-    int t=1;
-    // cin >>t;    
-    while (t--)Muneer();
-    return 0;
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL);cout.tie(NULL);
+	int t=1;
+	// cin >>t;    
+	while (t--)Muneer();
+	return 0;
 }
