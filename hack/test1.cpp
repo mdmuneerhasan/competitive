@@ -1,7 +1,7 @@
 /* This code is submitted by Muneer Hasan
 * Computer-science student ( @ Jamia Millia Islamia : New Delhi)
 * Email : md.muneerhasan@gmail.com
-* 20:18:41 Friday 04-December:2020*/
+* 16:59:09 Saturday 02-January:2021*/
 #include<bits/stdc++.h>
 using namespace std;
 #define int             long long int
@@ -25,45 +25,27 @@ vector<int> vec1,vec2,vec3,primes;
 unordered_map<int,int> dp;
 int n=0,m=0,k=0,n1=0,n2=0,n3=0,stt=0,ent=0,q=0,qry=0;
 
-int solve(int n,string s){
-    int sz=s.size();
-    int arr[n][8];
-
-    memset(arr,0,sizeof(arr));
-
-    int r=0;
-    for(int i=0;i<s.size()-1;i++){
-        if(s[i+1]==' '){
-            arr[r][s[i]-'A']=1;
-            r=0;
-            i++;
-        }else{
-            r=r*10+(s[i]-'0');
-        }
-    }
-    // int cnt=0,fam=0;
-    // for(int i=0;i<n;i++){
-    //     cnt=0;
-    //     for(int j=0;j<7;j++){
-    //         if(arr[i][j]==0){
-    //             cnt++;
-    //             if(cnt==4){
-    //                 cnt=0;
-    //                 fam++;
-    //             }
-    //         }else{
-    //             cnt=0;
-    //         }
-    //     }
-    // }
-    return 0;
-}
 void Muneer(){
-    int ans=0,cnt=0,x=0,y=0,z=0,a=0,b=0,c=0;
-    string s;
-    cin >> s;
-    cin >> n;
-    cout << solve(1,"")<<endl;
+    int n1,k;
+    
+    unordered_map<int,int> mark;
+    vector<int> vec1;
+    cin >>n1;
+    vec1.clear();
+    
+    for(int q=0;q<n1;q++){
+      cin >> k;
+      if(mark.count(k)>0)continue;
+      mark[k]=1;
+      vec1.push_back(k);
+    }
+
+    for(int i=0;i<vec1.size();i++){
+        cout << i <<":"<<vec1[i] << ", ";
+    }
+    cout <<endl;
+    
+    
     
     
 }
