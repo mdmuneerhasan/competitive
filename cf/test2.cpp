@@ -1,7 +1,7 @@
 /* This code is submitted by Muneer Hasan
 * Computer-scince student ( @ Jamia Millia Islamia : New Delhi)
 * Email : md.muneerhasan@gmail.com
-* 00:28:55 Saturday 06-March:2021*/
+* 20:01:41 Tuesday 09-March:2021*/
 #include<bits/stdc++.h>
 using namespace std;
 #define int             long long int
@@ -22,37 +22,21 @@ using namespace std;
 #define db(...)         __f(#__VA_ARGS__, __VA_ARGS__)
 template <typename Arg1>void __f(const char* name, Arg1&& arg1) { cout << name << " : " << arg1 << '\n'; }template <typename Arg1, typename... Args>void __f(const char* names, Arg1&& arg1, Args&&... args) {    const char* comma = strchr(names + 1, ',');    cout.write(names, comma - names) << " : " << arg1 << " | "; __f(comma + 1, args...);}
 vector<int> vec1,vec2,vec3,primes;
+int row,col;vector<vector<int>> vec;
 int n=0,m=0,k=0,n1=0,n2=0,n3=0,stt=0,ent=0,q=0,qry=0;
 
 void Muneer(){
-    
-    stack<char> st;
+    int ans=0,cnt=0,x=0,y=0,z=0,a=0,b=0,c=0;
     string s;
-    cin >> s;
-    bool ans=true;
-    int alt[1000];
-    alt['(']=')';
-    alt['{']='}';
-    alt['[']=']';
+    int th,tm,h,m;
 
-    for(int i=0;i<s.size();i++){
-        char c=s[i];
-        if(c=='('||c=='{'||c=='['){
-            st.push(c);
-        }else if(c==')'||c=='}'||c==']'){
-            if(st.empty()||alt[st.top()]!=c){
-                ans=false;
-            }else{
-                st.pop();
-            }
-        }
-    }
 
-    if(ans){
-        cout << "true"<<endl;
-    }else{
-        cout << "false"<<endl;
-    }
+
+    cin >> th >> tm >>s;
+
+    h=stoi(s.substr(0,2));
+    m=stoi(s.substr(3));
+    db(th,tm,s,h,m);    
     
     
 }
@@ -60,7 +44,7 @@ int32_t main(){
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);cout.tie(NULL);
     int t=1;
-    // cin >>t;    
+    cin >>t;    
     while (t--)Muneer();
     return 0;
 }
