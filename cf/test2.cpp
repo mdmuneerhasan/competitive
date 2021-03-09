@@ -32,12 +32,29 @@ void Muneer(){
 
 
 
+
     cin >> th >> tm >>s;
 
     h=stoi(s.substr(0,2));
     m=stoi(s.substr(3));
-    db(th,tm,s,h,m);    
-    
+
+    string hh="00";
+    string mm="00";
+
+    for(int i=m;i<tm;i++){
+        if(i==0||i==1||i==8||i==2||i==5){
+            mm="0"+to_string(i);
+            break;
+        }else if(i>=10 &&i/10==1||i/10==8||i/10==2||i/10==5){
+        if(i%10==0||i%10==1||i%10==8||i%10==2||i%10==5){
+            mm=to_string(i);
+            break;
+        }
+        }
+        
+    }
+
+    cout << hh+":"+mm<<endl;    
     
 }
 int32_t main(){
