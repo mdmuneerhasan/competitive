@@ -1,9 +1,7 @@
-#include<iostream>
-using namespace std;
 /* This code is submitted by Muneer Hasan
 * Computer-scince student ( @ Jamia Millia Islamia : New Delhi)
 * Email : md.muneerhasan@gmail.com
-* 21:04:04 Saturday 13-March:2021*/
+* 16:40:33 Sunday 04-April:2021*/
 #include<bits/stdc++.h>
 using namespace std;
 #define int             long long int
@@ -22,28 +20,41 @@ vector<int> vec1,vec2,vec3,primes;
 int row,col;vector<vector<int>> vec;
 int n=0,m=0,k=0,n1=0,n2=0,n3=0,stt=0,ent=0,q=0,qry=0;
 string s, s1 ,s2;
-#define For(i,l,r) for(int i=l;i<=r;i++)
 
-#define MAXN 101
+void Muneer(){
+    int ans=0,cnt=0,x=0,y=0,a=0,b=0;
+    
+    cin >> n;
+    cin >> s;
+    int dp[26]={0};
 
+    if(n%2==1){
 
-int T,N,a[MAXN],b[MAXN],c[MAXN];
-int32_t main(){
-	cin>>T;
-	while(T--)
-	{
-		cin>>N;For(i,1,N)
-        cin>>a[i]>>b[i];
-        For(i,1,N)cin>>c[i];
+    }else{
 
-		int x=0;
-        For(i,1,N)
-        {
-            x+=a[i]-b[i-1]+c[i];
-            if(i<N)x=max(b[i],x+(b[i]-a[i]+1)/2);
-            db(x);
+        for(int i=0;i<n;i++){
+            dp[s[i]-'a']++;
         }
-        cout<<x<<endl;
-	}
-	return 0;
+
+        for(int i=0;i<26;i++){
+            if(dp[i]%2==1){
+                ans=-1;
+            }
+        }
+
+        
+
+    }
+
+    cout << ans<<endl;
+    
+    
+}
+int32_t main(){
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);cout.tie(NULL);
+    int t=1;
+    cin >>t;    
+    while (t--)Muneer();
+    return 0;
 }
