@@ -1,0 +1,470 @@
+{
+	"print": {
+		"prefix": "coutln",
+		"body": [
+		  "cout << $1<<endl;"
+		],
+		"description": "print"
+	  },
+
+	  "seieve": {
+		"prefix": "seieve",
+		"body": [
+		  "bool seive[100001]={0};",
+		  "    for(int i=2;i<100001;i++){",
+		  "    if(seive[i]==0){",
+		  "        primes.push_back(i);",
+		  "        for(int j=i*i;j<100001;j+=i){",
+		  "            seive[j]=1;",
+		  "        }",
+		  "    }",
+		  "}"
+		],
+		"description": "seieve"
+	  },
+	  "compi snippet": {
+		"prefix": "newcccc",
+		"body": [
+		  "/* This code is submitted by Muneer Hasan",
+		  "* Computer-scince student ( @ Jamia Millia Islamia : New Delhi)",
+		  "* Email : md.muneerhasan@gmail.com",
+		  "* $CURRENT_HOUR:$CURRENT_MINUTE:$CURRENT_SECOND $CURRENT_DAY_NAME $CURRENT_DATE-$CURRENT_MONTH_NAME:$CURRENT_YEAR*/",
+		  "#include<bits/stdc++.h>",
+		  "using namespace std;",
+		  "#define int             long long int",
+		  "#define SF(v)           sort(v.begin(),v.end())",
+		  "#define F               first",
+		  "#define S               second",
+		  "#define UP(x)           for(int i=0;i<x.size();i++){if(x[i]<='z' && x[i]>='a')x[i]=char(x[i]-'a'+'A');}",
+		  "#define LO(x)           for(int i=0;i<x.size();i++){if(x[i]<='Z' && x[i]>='A')x[i]=char(x[i]-'A'+'a');}",
+		  "#define MP              make_pair",
+		  "#define PII             pair<int, int>",
+		  "#define MAXHEAP         priority_queue<int>",
+		  "#define MINHEAP         priority_queue<int, vector<int>, greater<int> >",
+		  "#define SETBIT(x)       __builtin_popcountll(x)",
+		  "#define ZEROBIT(x)      __builtin_ctzll(x)",
+		  "#define INF             1e18",
+		  "#define PS(x,y)         fixed<<setprecision(y)<<x",
+		  "#define MOD             1000000007",
+		  "#define db(...)         __f(#__VA_ARGS__, __VA_ARGS__)",
+		  "template <typename Arg1>void __f(const char* name, Arg1&& arg1) { cout << name << \" : \" << arg1 << '\\n'; }template <typename Arg1, typename... Args>void __f(const char* names, Arg1&& arg1, Args&&... args) {    const char* comma = strchr(names + 1, ',');    cout.write(names, comma - names) << \" : \" << arg1 << \" | \"; __f(comma + 1, args...);}",
+		  "vector<int> vec1,vec2,vec3,primes;",
+		  "int row,col;vector<vector<int>> vec;",
+		  "int n=0,m=0,k=0,n1=0,n2=0,n3=0,stt=0,ent=0,q=0,qry=0;",
+		  "string s, s1 ,s2;",
+		  "",
+		  "void Muneer(){",
+		  "    int ans=0,cnt=0,x=0,y=0,z=0,a=0,b=0,c=0;",
+		  "    ",
+		  "    ",
+		  "    ",
+		  "}",
+		  "int32_t main(){",
+		  "    ios_base::sync_with_stdio(false);",
+		  "    cin.tie(NULL);cout.tie(NULL);",
+		  "    int t=1;",
+		  "    // cin >>t;    ",
+		  "    while (t--)Muneer();",
+		  "    return 0;",
+		  "}"
+		],
+		"description": "compi snippet"
+	  },
+	  "College snippet": {
+		"prefix": "start",
+		"body": [
+		  "#include<bits/stdc++.h>",
+		  "using namespace std;",
+		  "stringstream vin,vout;",
+		  "",
+		  "int n,n1,n2,q=0,ans=0,cnt=0;",
+		  "vector<int> vec;",
+		  "",
+		  "void signature(bool enable){",
+		  "    if(!enable)return;",
+		  "    cout << \"$CURRENT_DAY_NAME $CURRENT_DATE-$CURRENT_MONTH_NAME:$CURRENT_YEAR\"<<endl;",
+		  "    cout << \"Name : Muneer Hasan\"<<endl;",
+		  "    cout << \"Roll No.: 17BCS054\"<<endl;",
+		  "}",
+		  "",
+		  "int32_t main(){",
+		  "    int t;",
+		  "    //signature(true);",
+		  "    //cin >>t;    while (t--)",
+		  "    {   ",
+		  "          ",
+		  "          ",
+		  "          ",
+		  "    }",
+		  "    return 0;",
+		  "}"
+		],
+		"description": "College snippet"
+	  },
+	  "loop1": {
+		"prefix": "fori",
+		"body": [
+		  "for(int i=0;i<${1:n};i++){",
+		  "",
+		  "}"
+		],
+		"description": "loop"
+	  },
+	  "loop2": {
+		"prefix": "forj",
+		"body": [
+		  "for(int j=0;j<${1:n};j++){",
+		  "",
+		  "}"
+		],
+		"description": "loop"
+	  },"add graph": {
+		"prefix": "graphin",
+		"body": [
+		  "adjList.clear();",
+		  "visited.clear();",
+		  "cin >>nodes;edges=nodes-1;",
+		  "for(int i=0;i<edges;i++){",
+		  "        cin >> stt >> ent>>k;",
+		  "        adjList[stt].push_back(make_pair(ent,k));",
+		  "        adjList[ent].push_back(make_pair(stt,k));",
+		  "} ",
+		  "// show();",
+		  "ans=0;",
+		  "",
+		  "for(int i=1;i<=nodes;i++){",
+		  "    visited.clear();",
+		  "    ans=max(ans,dfs(i,-1));",
+		  "}",
+		  "cout << ans<<endl;"
+		],
+		"description": "add graph"
+	  },
+	  "print graph": {
+		"prefix": "showgraph",
+		"body": [
+		  "int nodes,edges;",
+		  "unordered_map<int,int> visited;",
+		  "unordered_map<int,list<pair<int,int>>> adjList;",
+		  "void show(){",
+		  "    for(auto x:adjList){",
+		  "        cout<< x.first << \"->\";",
+		  "        for(auto y:x.second){",
+		  "            cout <<\"(\"<< y.first <<\",\"<<y.second<<\")\";",
+		  "        }",
+		  "        cout <<endl;",
+		  "    }",
+		  "}",
+		  "int dfs(int src,int par){",
+		  "    visited[src]=1;",
+		  "    int k=0;",
+		  "    for(auto x: adjList[src]){",
+		  "        if(x.first!=par){",
+		  "            if(!visited[x.first]){",
+		  "                k=max(k,dfs(x.first,src)+x.second);",
+		  "            }",
+		  "        }",
+		  "    }",
+		  "    return k;",
+		  "}",
+		  ""
+		],
+		"description": "print graph"
+	  }	  ,
+	  "loop3": {
+		"prefix": "fork",
+		"body": [
+		  "for(int k=0;k<${1:n};k++){",
+		  "",
+		  "}"
+		],
+		"description": "loop"
+	  },
+
+	  "loop4": {
+		"prefix": "forl",
+		"body": [
+		  "for(int l=0;l<${1:n};l++){",
+		  "",
+		  "}"
+		],
+		"description": "loop"
+	  },
+	  "global vector": {
+		"prefix": "vec",
+		"body": [
+		  "cin >>n${1:1};",
+		  "vec${1:1}.clear();",
+		  "vec${1:1}.resize(n${1:1},0);",
+		  "for(int q=0;q<n${1:1};q++){",
+		  "  cin >> vec${1:1}[q];",
+		  "}"
+		],
+		"description": "set vector"
+	  },
+	  "2d vector": {
+		"prefix": "vec2",
+		"body": [
+		  "cin >>row >> col;",
+		  "vec.clear();",
+		  "vec.resize(row,vector<int>(col,0));",
+		  "for(int q=0;q<row;q++){",
+		  "  for(int r=0;r<col;r++){",
+		  "    cin  >> vec[q][r];",
+		  "  }",
+		  "}"
+		],
+		"description": "2d vector"
+	  },
+	  "show 2d vector": {
+		"prefix": "show2",
+		"body": [
+		  "for(int q=0;q<10;q++){",
+		  "  for(int r=0;r<10;r++){",
+		  "    cout  << ${3:vec2}[q][r]<<\" \";",
+		  "  }",
+		  "  cout <<endl;",
+		  "}",
+		  "cout << endl;"
+		],
+		"description": "show 2d vector"
+	  },
+	  "querries": {
+		"prefix": "cases",
+		"body": [
+		  "cin >> qry;",
+		  "int l,r,val,index,cse=1;",
+		  "while(qry--){",
+		  "   cin >> cse;",
+		  "   switch(cse){",
+		  "   case 1:",
+		  "",
+		  "     ",
+		  "   break;",
+		  "    }",
+		  "}"
+		],
+		"description": "querries"
+	  },
+
+	  "debugger": {
+		"prefix": "db",
+		"body": [
+		  "#define db(...) __f(#__VA_ARGS__, __VA_ARGS__)",
+		  "",
+		  "template <typename Arg1>",
+		  "void __f(const char* name, Arg1&& arg1) { cout << name << \" : \" << arg1 << '\\n'; }",
+		  "template <typename Arg1, typename... Args>",
+		  "void __f(const char* names, Arg1&& arg1, Args&&... args) {",
+		  "    const char* comma = strchr(names + 1, ',');",
+		  "    cout.write(names, comma - names) << \" : \" << arg1 << \" | \"; __f(comma + 1, args...);",
+		  "}"
+		],
+		"description": "debugger"
+	  },
+	  "take in array": {
+		"prefix": "arr",
+		"body": [
+		  "  cin >> ${2:n1};",
+		  "  int ${1:arr}[${2:n1}];",
+		  "  for(int i=0;i<${2:n1};i++){",
+		  "    cin >> ${1:arr}[i];",
+		  "  }",
+		  "",
+		  ""
+		],
+		"description": "take in array"
+	  },
+
+	  "show array": {
+		"prefix": "show",
+		"body": [
+		  "for(int i=0;i<100;i++){",
+		  "    cout << i <<\":\"<<${1:arr}[i] << \", \";",
+		  "}",
+		  "cout <<endl;",
+		  "",
+		  ""
+		],
+		"description": "show array"
+	  },
+
+	  "draw Tree": {
+		"prefix": "binarytree",
+		"body": [
+		  "struct Node",
+		  "{",
+		  "    int data;",
+		  "    Node * left;",
+		  "    Node * right;",
+		  "    Node(){",
+		  "        left=NULL;",
+		  "        right=NULL;",
+		  "    }",
+		  "};",
+		  "Node * build(){",
+		  "    Node * node=new Node();",
+		  "    cin >>node->data;",
+		  "    string left,right;",
+		  "    cin >> left;",
+		  "    if(left.compare(\"true\")==0){",
+		  "        node->left=build();",
+		  "        // cout << node->left->data;",
+		  "    }",
+		  "    cin >> right;",
+		  "    if(right.compare(\"true\")==0){",
+		  "        node->right=build();",
+		  "        // cout << node->right->data;",
+		  "    }",
+		  "    return node;",
+		  "}",
+		  "void print(Node * node,string indent=\"\",string child=\"\"){",
+		  "    if(node==NULL)return;",
+		  "    cout <<\"\\n\"<<indent<<\"`---\"<< node->data;",
+		  "    if(child.size()!=0)cout<<'{'<<child<<\"}\";",
+		  "    print(node->left,\"\\t\"+indent,\"l\");",
+		  "    print(node->right,\"\\t\"+indent,\"r\");",
+		  "    return;",
+		  "}"
+		],
+		"description": "draw Tree"
+	  },
+	  "print map": {
+		"prefix": "showm",
+		"body": [
+		  "for(auto x:${dp}){",
+			"    cout << x.first <<\":\"<<x.second<<endl;",
+			"}",
+			"cout <<endl;"
+		],
+		"description": "print map"
+	  },
+	  "power": {
+		"prefix": "power",
+		"body": [
+		  "int power(int a,int p){",
+		  "    if(p==0){",
+		  "        return 1;",
+		  "    }",
+		  "    int ans=power(a,p/2)%MOD;",
+		  "    ans=ans*ans;",
+		  "    ans%=MOD;",
+		  "    if(p&1){",
+		  "        ans=ans*a;",
+		  "        ans%=MOD;",
+		  "    }",
+		  "    return ans;",
+		  "}",
+		  ""
+		],
+		"description": "power"
+	  },
+	  "segment tree": {
+		"prefix": "showseg",
+		"body": [
+		  "vector<int> tree;",
+		  "vector<int> lazy;",
+		  "void build(int start,int end,int node ){",
+		  "    if(start==end){",
+		  "        tree[node]=vec1[start];",
+		  "        return;",
+		  "    }",
+		  "    int mid=(start+end)/2;",
+		  "    build(start,mid,2*node+1);",
+		  "    build(mid+1,end,2*node+2);",
+		  "    tree[node]=(tree[2*node+1]+tree[2*node+2]);",
+		  "}",
+		  "void update(int start,int end ,int node ,int l,int r,int val){",
+		  "    if(start>end || end<l || start>r)return;",
+		  "    if(lazy[node]!=0){",
+		  "        int x=lazy[node];",
+		  "        tree[node]+=(end-start+1)*x;",
+		  "        lazy[2*node+1]=x;",
+		  "        lazy[2*node+2]=x;",
+		  "    }",
+		  "    if(start>=l && end<=r){",
+		  "        tree[node]+=val*(end-start+1);",
+		  "        if(start!=end){",
+		  "        lazy[2*node+1]=val;",
+		  "        lazy[2*node+2]=val;}",
+		  "        return;",
+		  "    }",
+		  "    int mid=(start+end)/2;",
+		  "    update(start,mid,2*node+1,l,r,val);",
+		  "    update(mid+1,end,2*node+2,l,r,val);",
+		  "    tree[node]=(tree[2*node+1]+tree[2*node+2]);",
+		  "",
+		  "}",
+		  "int query(int start,int end ,int node ,int l,int r){",
+		  "    if(start>end || end<l || start>r)return 0;",
+		  "      if(lazy[node]!=0){",
+		  "        int x=lazy[node];",
+		  "        tree[node]+=(end-start+1)*x;",
+		  "        lazy[2*node+1]=x;",
+		  "        lazy[2*node+2]=x;",
+		  "    }",
+		  "    if(start>=l && end<=r){",
+		  "        return tree[node];",
+		  "    }",
+		  "    int mid=(start+end)/2;",
+		  "    return (",
+		  "    query(start,mid,2*node+1,l,r)+",
+		  "    query(mid+1,end,2*node+2,l,r));",
+		  "}",
+		  "void print(int par=0,string indent=\"\",string child=\"\"){",
+		  "    if(par>=tree.size())return;",
+		  "    cout <<\"\\n\"<<indent<<\"`---\"<<tree[par];",
+		  "    if(child.size()!=0)cout<<'{'<<child<<\"}\";",
+		  "    print(2*par+1,\"\\t\"+indent,\"l\");",
+		  "    print(2*par+2,\"\\t\"+indent,\"r\");",
+		  "    return;",
+		  "}"
+		],
+		"description": "segment tree"
+	  },
+	  "File reader and writer": {
+		"prefix": "reader",
+		"body": [
+		  "",
+		  "string s;",
+		  "int sz=0;",
+		  "void read(string path){",
+		  "        ifstream fin(path);",
+		  "        string line;",
+		  "        while (getline(fin,line))",
+		  "        {",
+		  "            stringstream kin(line);",
+		  "            while(kin>>s){",
+		  "                vin<<s+\" \";",
+		  "                sz++;",
+		  "            }",
+		  "        }",
+		  "        fin.close();",
+		  "}",
+		  "void write(string path){",
+		  "        ofstream fout(path);",
+		  "        fout<<vout.str();",
+		  "        fout.close();",
+		  "}",
+		  ""
+		],
+		"description": "File reader and writer"
+	  },
+
+	  "stylish tree": {
+		"prefix": "showtree",
+		"body": [
+		  "",
+		  "void print2(Node * node,string indent=\"\",string child=\"\"){",
+		  "    if(node==NULL)return;",
+		  "    print2(node->right,\"\\t\"+indent,\"r\");",
+		  "    if(child==\"\")cout<<\"\\n   \"<<indent<< node->data;",
+		  "    else if(child==\"l\") cout<<\"\\n\" << indent <<\"`---\"<< node->data;",
+		  "    else if(child==\"r\") cout << \"\\n\"<<indent<<\",---\"<< node->data;",
+		  "    print2(node->left,\"\\t\"+indent,\"l\");",
+		  "    return;",
+		  "}"
+		],
+		"description": "stylish tree"
+	  }
+}
