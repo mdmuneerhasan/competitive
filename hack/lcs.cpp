@@ -1,7 +1,7 @@
 /* This code is submitted by Muneer Hasan
 * Computer-scince student ( @ Jamia Millia Islamia : New Delhi)
 * Email : md.muneerhasan@gmail.com
-* 23:09:32 Sunday 16-May:2021*/
+* 17:57:17 Tuesday 13-April:2021*/
 #include<bits/stdc++.h>
 using namespace std;
 #define int             long long int
@@ -14,84 +14,37 @@ using namespace std;
 #define ZEROBIT(x)      __builtin_ctzll(x)
 #define PS(x,y)         fixed<<setprecision(y)<<x
 #define MOD             1000000007
-#define N               100000
+#define LS1             cin >> s1;n1=s1.size()
+#define LS2             cin >> s2;n2=s2.size()
 #define db(...)         __f(#__VA_ARGS__, __VA_ARGS__)
 template <typename Arg1>void __f(const char* name, Arg1&& arg1) { cout << name << " : " << arg1 << '\n'; }template <typename Arg1, typename... Args>void __f(const char* names, Arg1&& arg1, Args&&... args) {    const char* comma = strchr(names + 1, ',');    cout.write(names, comma - names) << " : " << arg1 << " | "; __f(comma + 1, args...);}
 vector<int> vec1,vec2,vec3,primes;
 int row,col;vector<vector<int>> vec;
 int n=0,m=0,k=0,n1=0,n2=0,n3=0,stt=0,ent=0,q=0,qry=0;
 string s, s1 ,s2;
-
+string dp[1000][1000];
+string solve(int i,int j){
+    if(i==n1 || j==n2){
+        return "";
+    }
+    if(!dp[i][j].empty())return dp[i][j];
+    if(s1[i]==s2[j]){
+        return s1[i]+solve(i+1,j+1);
+    }
+    string a=solve(i+1,j);
+    string b=solve(i,j+1);
+    if(a.length()>=b.length()){
+        return dp[i][j]=a;
+    }
+    return dp[i][j]=b;
+}
 void Muneer(){
     int ans=0,cnt=0,x=0,y=0,a=0,b=0;
     
-    cin >>n1;
-    vec1.clear();
-    vec1.resize(n1,0);
-    for(int q=0;q<n1;q++){
-      cin >> vec1[q];
-    }
+    LS1;    LS2;
 
-    cin >>n2;
-    vec2.clear();
-    vec2.resize(n2,0);
-    for(int q=0;q<n2;q++){
-      cin >> vec2[q];
-    }
+    cout << solve(0,0)<<endl;
     
-    int m1=n1-1,m2=n2-1;
-
-
-    int sum=0,carry=0;
-
-    while(m1>=0 && m2>=0){
-        sum=vec1[m1]+vec2[m2]+carry;
-
-        carry+=sum/10;
-        vec3.push_back(sum%10);
-
-        m1--;
-        m2--;
-    }
-
-    while(m2>=0){
-
-        sum=vec2[m2]+carry;
-
-        carry+=sum/10;
-        vec3.push_back(sum%10);
-
-        m2--;
-    }
-
-    
-    while(m1>=0){
-        sum=vec1[m1]+carry;
-        carry+=sum/10;
-        vec3.push_back(sum%10);
-        m1--;
-    }
-
-    while(carry>0){
-        vec3.push_back(carry%10);
-        carry/=10;
-    }
-
-    for(int i=0;i<vec3.size();i++){
-        cout <<vec3[vec3.size()-i-1] << " ";
-    }
-    cout <<endl;
-    
-    
-
-
-
-
-
-
-
-
-
 }
 int32_t main(){
     ios_base::sync_with_stdio(false);

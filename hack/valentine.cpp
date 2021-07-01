@@ -1,7 +1,7 @@
 /* This code is submitted by Muneer Hasan
 * Computer-scince student ( @ Jamia Millia Islamia : New Delhi)
 * Email : md.muneerhasan@gmail.com
-* 23:09:32 Sunday 16-May:2021*/
+* 23:35:33 Saturday 17-April:2021*/
 #include<bits/stdc++.h>
 using namespace std;
 #define int             long long int
@@ -14,84 +14,42 @@ using namespace std;
 #define ZEROBIT(x)      __builtin_ctzll(x)
 #define PS(x,y)         fixed<<setprecision(y)<<x
 #define MOD             1000000007
-#define N               100000
+#define N               5000
 #define db(...)         __f(#__VA_ARGS__, __VA_ARGS__)
 template <typename Arg1>void __f(const char* name, Arg1&& arg1) { cout << name << " : " << arg1 << '\n'; }template <typename Arg1, typename... Args>void __f(const char* names, Arg1&& arg1, Args&&... args) {    const char* comma = strchr(names + 1, ',');    cout.write(names, comma - names) << " : " << arg1 << " | "; __f(comma + 1, args...);}
 vector<int> vec1,vec2,vec3,primes;
 int row,col;vector<vector<int>> vec;
 int n=0,m=0,k=0,n1=0,n2=0,n3=0,stt=0,ent=0,q=0,qry=0;
 string s, s1 ,s2;
+int dp[N][N];
+int solve(int i,int j){
+    if(i==n1)return 0;
+    if(j==n2)return INT_MAX;
+    if(dp[i][j]!=-1)return dp[i][j];
+    return dp[i][j]=min(solve(i+1,j+1)+abs(vec1[i]-vec2[j]),solve(i,j+1));
 
+}
 void Muneer(){
     int ans=0,cnt=0,x=0,y=0,a=0,b=0;
     
     cin >>n1;
+    memset(dp,-1,sizeof(dp));
+
+    cin >>n2;
     vec1.clear();
     vec1.resize(n1,0);
     for(int q=0;q<n1;q++){
       cin >> vec1[q];
     }
 
-    cin >>n2;
     vec2.clear();
     vec2.resize(n2,0);
     for(int q=0;q<n2;q++){
       cin >> vec2[q];
     }
-    
-    int m1=n1-1,m2=n2-1;
+    SF(vec1);SF(vec2);
 
-
-    int sum=0,carry=0;
-
-    while(m1>=0 && m2>=0){
-        sum=vec1[m1]+vec2[m2]+carry;
-
-        carry+=sum/10;
-        vec3.push_back(sum%10);
-
-        m1--;
-        m2--;
-    }
-
-    while(m2>=0){
-
-        sum=vec2[m2]+carry;
-
-        carry+=sum/10;
-        vec3.push_back(sum%10);
-
-        m2--;
-    }
-
-    
-    while(m1>=0){
-        sum=vec1[m1]+carry;
-        carry+=sum/10;
-        vec3.push_back(sum%10);
-        m1--;
-    }
-
-    while(carry>0){
-        vec3.push_back(carry%10);
-        carry/=10;
-    }
-
-    for(int i=0;i<vec3.size();i++){
-        cout <<vec3[vec3.size()-i-1] << " ";
-    }
-    cout <<endl;
-    
-    
-
-
-
-
-
-
-
-
-
+    cout << solve(0,0)<<endl;
 }
 int32_t main(){
     ios_base::sync_with_stdio(false);

@@ -1,7 +1,7 @@
 /* This code is submitted by Muneer Hasan
 * Computer-scince student ( @ Jamia Millia Islamia : New Delhi)
 * Email : md.muneerhasan@gmail.com
-* 23:09:32 Sunday 16-May:2021*/
+* 23:47:37 Saturday 17-April:2021*/
 #include<bits/stdc++.h>
 using namespace std;
 #define int             long long int
@@ -21,77 +21,28 @@ vector<int> vec1,vec2,vec3,primes;
 int row,col;vector<vector<int>> vec;
 int n=0,m=0,k=0,n1=0,n2=0,n3=0,stt=0,ent=0,q=0,qry=0;
 string s, s1 ,s2;
+bool solve(int in ,int sum,bool taken){
+    if(taken && (sum)%k==0)return true;
+    if(in==n1)return false;
 
+    return solve(in+1,sum,taken)|solve(in+1, (sum+vec1[in])%k,1);
+}
 void Muneer(){
     int ans=0,cnt=0,x=0,y=0,a=0,b=0;
     
-    cin >>n1;
+
+    cin>>n1>>k;
+    
     vec1.clear();
     vec1.resize(n1,0);
     for(int q=0;q<n1;q++){
       cin >> vec1[q];
+
     }
 
-    cin >>n2;
-    vec2.clear();
-    vec2.resize(n2,0);
-    for(int q=0;q<n2;q++){
-      cin >> vec2[q];
-    }
-    
-    int m1=n1-1,m2=n2-1;
-
-
-    int sum=0,carry=0;
-
-    while(m1>=0 && m2>=0){
-        sum=vec1[m1]+vec2[m2]+carry;
-
-        carry+=sum/10;
-        vec3.push_back(sum%10);
-
-        m1--;
-        m2--;
-    }
-
-    while(m2>=0){
-
-        sum=vec2[m2]+carry;
-
-        carry+=sum/10;
-        vec3.push_back(sum%10);
-
-        m2--;
-    }
-
-    
-    while(m1>=0){
-        sum=vec1[m1]+carry;
-        carry+=sum/10;
-        vec3.push_back(sum%10);
-        m1--;
-    }
-
-    while(carry>0){
-        vec3.push_back(carry%10);
-        carry/=10;
-    }
-
-    for(int i=0;i<vec3.size();i++){
-        cout <<vec3[vec3.size()-i-1] << " ";
-    }
-    cout <<endl;
+    cout << (solve(0,0,0)?"YES":"NO")<<endl;
     
     
-
-
-
-
-
-
-
-
-
 }
 int32_t main(){
     ios_base::sync_with_stdio(false);
