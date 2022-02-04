@@ -12,18 +12,18 @@ int32_t main(){
    //signature(true);
     //cin >>t;    while (t--)
     {   
-       
        cin >>n1;
        vec1.clear();
        vec1.resize(n1,0);
        for(int q=0;q<n1;q++){
          cin >> vec1[q];
        }
-       
+
        for(int i=0;i<100;i++){
            cout << i <<":"<<vec1[i] << ", ";
        }
        cout <<endl;
+       
        
        
        
