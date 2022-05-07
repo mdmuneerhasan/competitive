@@ -1,7 +1,7 @@
 /* This code is submitted by Muneer Hasan
 * Computer-scince student ( @ Jamia Millia Islamia : New Delhi)
 * Email : md.muneerhasan@gmail.com
-* 07:19:59 Tuesday 03-May:2022*/
+* 22:31:20 Friday 29-April:2022*/
 #include<bits/stdc++.h>
 using namespace std;
 #define int             long long int
@@ -28,17 +28,27 @@ string s, s1 ,s2;
 
 void Muneer(){
     int ans=0,cnt=0,x=0,y=0,z=0,a=0,b=0,c=0;
+
+    cin >>n1;
+    int lis[n1];
+    vec1.clear();
+    vec1.resize(n1,0);
+    for(int q=0;q<n1;q++){
+      cin >> vec1[q];
+      lis[q]=1;
+    }
+
+    for(int i=0;i<n1-1;i++){
+        for(int j=i+1;j<n1;j++){
+            if(vec1[j]>vec1[i]){
+                lis[j]=max(lis[i]+1,lis[j]);
+                ans = max(ans,lis[j]);
+            }
+            // db(ans);
+        }
+    }
+    cout << ans <<endl;
     
-    cin >> n;
-
-
-while(n){
-    ans++;
-    n &= n-1;
-}
-
-
-    cout << ans<<endl;
     
     
 }
@@ -46,7 +56,7 @@ int32_t main(){
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);cout.tie(NULL);
     int t=1;
-    cin >>t;    
+    // cin >>t;    
     while (t--)Muneer();
     return 0;
 }

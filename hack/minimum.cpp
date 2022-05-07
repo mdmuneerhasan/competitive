@@ -1,7 +1,7 @@
 /* This code is submitted by Muneer Hasan
 * Computer-scince student ( @ Jamia Millia Islamia : New Delhi)
 * Email : md.muneerhasan@gmail.com
-* 07:19:59 Tuesday 03-May:2022*/
+* 18:05:17 Saturday 30-April:2022*/
 #include<bits/stdc++.h>
 using namespace std;
 #define int             long long int
@@ -29,16 +29,25 @@ string s, s1 ,s2;
 void Muneer(){
     int ans=0,cnt=0,x=0,y=0,z=0,a=0,b=0,c=0;
     
-    cin >> n;
+    cin >>n1;
+    vec1.clear();
+    vec1.resize(n1,0);
+    int dp[n1+1];
+    dp[0]=0;
+    for(int q=0;q<n1;q++){
+      cin >> vec1[q];
+      dp[q+1] = INT_MAX;
+    }
+    for(int i=0;i<n1;i++){
+        int p = vec1[i];
 
 
-while(n){
-    ans++;
-    n &= n-1;
-}
+        for(int j=i+1;j<=i+p && j<=n1;j++){
+            dp[j]=min(dp[j],dp[i]+1);
+        }
+    }
 
-
-    cout << ans<<endl;
+    cout << dp[n1-1]<<endl;
     
     
 }

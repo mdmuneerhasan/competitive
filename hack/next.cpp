@@ -1,7 +1,7 @@
 /* This code is submitted by Muneer Hasan
 * Computer-scince student ( @ Jamia Millia Islamia : New Delhi)
 * Email : md.muneerhasan@gmail.com
-* 07:19:59 Tuesday 03-May:2022*/
+* 21:55:17 Wednesday 30-March:2022*/
 #include<bits/stdc++.h>
 using namespace std;
 #define int             long long int
@@ -28,17 +28,47 @@ string s, s1 ,s2;
 
 void Muneer(){
     int ans=0,cnt=0,x=0,y=0,z=0,a=0,b=0,c=0;
+    cin >>n1;
+    vec1.clear();
+    vec1.resize(n1,0);
+    for(int q=0;q<n1;q++){
+      cin >> vec1[q];
+    }
+
+    int i=n1-2;
+
+    while(i >=0 &&vec1[i]>=vec1[i+1] )i--;
+
+    if(i>=0){
+        // next_permutation(vec1.begin(),vec1.end());
+        int in = i+1;
+        int l=in;
+        int r = n1-1;
+        while(l<=r){
+            int mid = l+ (r-l)/2;
+            if(vec1[mid]>vec1[i]){
+                in = mid;
+                l=mid+1;
+            }else{
+                r=mid-1;
+            }
+        }
+        
+
+        swap(vec1[i],vec1[in]);
+        reverse(vec1.begin()+i+1,vec1.end());
+    }else{
+        SF(vec1);
+    }
+
+
+    for(int i=0;i<n1;i++){
+        cout <<vec1[i] << " ";
+    }
+    cout <<endl;
     
-    cin >> n;
+    
 
-
-while(n){
-    ans++;
-    n &= n-1;
-}
-
-
-    cout << ans<<endl;
     
     
 }
@@ -46,7 +76,7 @@ int32_t main(){
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);cout.tie(NULL);
     int t=1;
-    cin >>t;    
+    cin >>t;        
     while (t--)Muneer();
     return 0;
 }

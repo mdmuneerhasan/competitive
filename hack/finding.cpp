@@ -30,15 +30,44 @@ void Muneer(){
     cin >> n;
     string s;
     cin >> s;
-    
+    string s1="";
+
+    for(int i=0;i<20;i++){
+        s1=s1+"0";
+    }
+
+
 
     for(int i=1;i<=n;i++){
-        for(int j=0;j<n-i;j++){
-            
+        for(int j=0;j<=n-i;j++){
+            string num = s.substr(j,i);
+            int n = stoi(num);
+            if(n<2)continue;
+            bool pr=1;
+            for(int i=0;i<10;i++){
+                if(p[i]==n){
+                    break;
+                }else if(n%p[i]==0){
+                    pr=0;
+                }
+            }
+          //io  db(num);
 
+            for(int k=j;k<j+i;k++){
+                if(s1[k]=='1')pr=0;
+            }
+            if(pr){
+                ans++;
+                
+                for(int k=j;k<j+i;k++){
+                    s1[k]='1';
+                }
+              //  db(s1,num,j,i);
+            }
         }
     }
     
+    cout << ans<<endl;
     
 }
 int32_t main(){

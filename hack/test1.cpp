@@ -1,7 +1,7 @@
 /* This code is submitted by Muneer Hasan
 * Computer-scince student ( @ Jamia Millia Islamia : New Delhi)
 * Email : md.muneerhasan@gmail.com
-* 00:21:03 Monday 14-March:2022*/
+* 08:36:06 Saturday 07-May:2022*/
 #include<bits/stdc++.h>
 using namespace std;
 #define int             long long int
@@ -28,6 +28,22 @@ string s, s1 ,s2;
 
 void Muneer(){
     int ans=0,cnt=0,x=0,y=0,z=0,a=0,b=0,c=0;
+    
+      cin >> n1;
+      int arr[n1];
+      for(int i=0;i<n1;i++){
+        cin >> arr[i];
+      }
+
+      sort(arr,arr+n1);
+
+      for(int i=0;i<n1;i++){
+          cout <<arr[i] << "\n";
+      }
+      cout <<endl;
+      
+      
+    
     
     
     

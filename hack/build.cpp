@@ -1,7 +1,7 @@
 /* This code is submitted by Muneer Hasan
 * Computer-scince student ( @ Jamia Millia Islamia : New Delhi)
 * Email : md.muneerhasan@gmail.com
-* 07:19:59 Tuesday 03-May:2022*/
+* 16:21:56 Wednesday 23-March:2022*/
 #include<bits/stdc++.h>
 using namespace std;
 #define int             long long int
@@ -25,21 +25,53 @@ vector<int> vec1,vec2,vec3,primes;
 int row,col;vector<vector<int > > vec;
 int n=0,m=0,k=0,n1=0,n2=0,n3=0,stt=0,ent=0,q=0,qry=0;
 string s, s1 ,s2;
+struct Node{
+    Node * r , * l;
+    int val;
+    Node(){
+        l=NULL;
+        r=NULL;
+    }
+};
+Node * build(int l,int r){
+    Node * n = NULL;
+    if(l<=r){
+     
+        n= new Node();
+        int mid = (l+r)/2;
+        n->val = vec1[mid];
+        if(l<=mid-1)
+        n->l = build(l,mid-1);
+        if(mid-1<=r)
+        n->r = build(mid+1,r);
+    }
+    return n;
+
+}
+void print(Node * r){
+    if(r==NULL){
+        return;
+    }
+    cout << r->val <<" ";
+    print(r->l);
+    print(r->r);
+
+}
 
 void Muneer(){
     int ans=0,cnt=0,x=0,y=0,z=0,a=0,b=0,c=0;
+    cin >>n1;
+    vec1.clear();
+    vec1.resize(n1,0);
+    for(int q=0;q<n1;q++){
+      cin >> vec1[q];
+    }
     
-    cin >> n;
+    Node * r = build(0,n1-1);
 
+    print(r);
 
-while(n){
-    ans++;
-    n &= n-1;
-}
-
-
-    cout << ans<<endl;
-    
+    cout <<endl;
     
 }
 int32_t main(){

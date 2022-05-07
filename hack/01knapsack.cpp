@@ -17,7 +17,7 @@ using namespace std;
 #define db(...)         __f(#__VA_ARGS__, __VA_ARGS__)
 template <typename Arg1>void __f(const char* name, Arg1&& arg1) { cout << name << " : " << arg1 << '\n'; }template <typename Arg1, typename... Args>void __f(const char* names, Arg1&& arg1, Args&&... args) {    const char* comma = strchr(names + 1, ',');    cout.write(names, comma - names) << " : " << arg1 << " | "; __f(comma + 1, args...);}
 vector<int> vec1,vec2,vec3,primes;
-int row,col;vector<vector<int>> vec;
+int row,col;vector<vector<int > > vec;
 int n=0,m=0,k=0,n1=0,n2=0,n3=0,stt=0,ent=0,q=0,qry=0;
 string s, s1 ,s2;
 int dp[1000][1000];
@@ -42,16 +42,16 @@ void Muneer(){
     cin >>n1>>k;
     vec1.clear();
     vec1.resize(n1,0);
-    for(int q=0;q<n1;q++){
-      cin >> vec1[q];
-    }
-    
     n2=n1;
     vec2.clear();
     vec2.resize(n2,0);
-    for(int q=0;q<n2;q++){
-      cin >> vec2[q];
+    for(int q=0;q<n1;q++){
+      cin >> vec1[q];
+      vec2[q]=q+1;
+
     }
+    
+
     memset(dp,-1,sizeof(dp));
 
     cout << solve(0,k)<<endl;

@@ -1,7 +1,7 @@
 /* This code is submitted by Muneer Hasan
 * Computer-scince student ( @ Jamia Millia Islamia : New Delhi)
 * Email : md.muneerhasan@gmail.com
-* 07:19:59 Tuesday 03-May:2022*/
+* 11:36:53 Sunday 27-March:2022*/
 #include<bits/stdc++.h>
 using namespace std;
 #define int             long long int
@@ -25,21 +25,74 @@ vector<int> vec1,vec2,vec3,primes;
 int row,col;vector<vector<int > > vec;
 int n=0,m=0,k=0,n1=0,n2=0,n3=0,stt=0,ent=0,q=0,qry=0;
 string s, s1 ,s2;
+struct Node{
+    int data;
+    Node * left , * right ;
+    Node(int x){
+        data=x;
+        left = NULL;
+        right = NULL;
+    }
+};
+Node * build(Node * root , int val){
 
+    if(root==NULL){
+
+        root = new Node(val);        
+    }else if(val<=root->data){
+        root->left=build(root->left,val);
+    }else{
+        root->right=build(root->right,val);
+    }
+
+    return root;
+
+}
+bool print(Node * r){
+    if(r==NULL)return 0;
+
+
+    int ans = print(r->left);
+    if(r->data>= stt && r->data<=ent)
+    cout << r->data<<" ";
+    
+    ans += print(r->right);
+
+
+    return ans;
+
+}
+bool printPre(Node * r){
+    if(r==NULL)return 0;
+
+    cout << r->data<<" ";
+
+    int ans = printPre(r->left);
+
+    ans += printPre(r->right);
+
+
+    return ans;
+
+}
 void Muneer(){
     int ans=0,cnt=0,x=0,y=0,z=0,a=0,b=0,c=0;
-    
+
     cin >> n;
+    Node * root=NULL;
+    for(int i=0;i<n;i++){
+        cin >> k;
+        root =build(root,k);
+    }
+    cin >> stt >> ent;
 
+    cout << "# Preorder : ";
+    printPre(root);
 
-while(n){
-    ans++;
-    n &= n-1;
-}
+    cout << "\n# Nodes within range are : ";
+    print(root);
+    cout <<endl;
 
-
-    cout << ans<<endl;
-    
     
 }
 int32_t main(){

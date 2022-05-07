@@ -1,7 +1,7 @@
 /* This code is submitted by Muneer Hasan
 * Computer-scince student ( @ Jamia Millia Islamia : New Delhi)
 * Email : md.muneerhasan@gmail.com
-* 07:19:59 Tuesday 03-May:2022*/
+* 02:32:34 Sunday 27-March:2022*/
 #include<bits/stdc++.h>
 using namespace std;
 #define int             long long int
@@ -25,28 +25,47 @@ vector<int> vec1,vec2,vec3,primes;
 int row,col;vector<vector<int > > vec;
 int n=0,m=0,k=0,n1=0,n2=0,n3=0,stt=0,ent=0,q=0,qry=0;
 string s, s1 ,s2;
+struct Node{
+    int data;
+    vector<Node * > vec;
+};
+Node * build(){
+    Node * node=new Node();
+    cin >> node->data;
+    int x;
+    cin >> x;
 
+    for(int i=0;i<x;i++){
+        node->vec.push_back(build());
+    }
+
+
+
+    return node;
+}
+int print(Node * root,int k){
+    int ans=0;
+    if(k==0)
+    return root->data;
+
+    for(auto x : root->vec){
+        ans+=print(x,k-1);
+    }
+    return ans;
+
+}
 void Muneer(){
     int ans=0,cnt=0,x=0,y=0,z=0,a=0,b=0,c=0;
-    
-    cin >> n;
-
-
-while(n){
-    ans++;
-    n &= n-1;
-}
-
-
-    cout << ans<<endl;
-    
+    Node * root = build();
+    cin >> k;
+    cout<<print(root,k);
     
 }
 int32_t main(){
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);cout.tie(NULL);
     int t=1;
-    cin >>t;    
+    // cin >>t;    
     while (t--)Muneer();
     return 0;
 }

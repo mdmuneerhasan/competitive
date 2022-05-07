@@ -1,7 +1,7 @@
 /* This code is submitted by Muneer Hasan
 * Computer-scince student ( @ Jamia Millia Islamia : New Delhi)
 * Email : md.muneerhasan@gmail.com
-* 07:19:59 Tuesday 03-May:2022*/
+* 13:18:32 Saturday 02-April:2022*/
 #include<bits/stdc++.h>
 using namespace std;
 #define int             long long int
@@ -25,20 +25,14 @@ vector<int> vec1,vec2,vec3,primes;
 int row,col;vector<vector<int > > vec;
 int n=0,m=0,k=0,n1=0,n2=0,n3=0,stt=0,ent=0,q=0,qry=0;
 string s, s1 ,s2;
-
+const int N = 1000000;
+int dp[N],dp2[N];
 void Muneer(){
     int ans=0,cnt=0,x=0,y=0,z=0,a=0,b=0,c=0;
-    
-    cin >> n;
+    cin >> n1 >> n2;
+    if(n1==0)n1++;
 
-
-while(n){
-    ans++;
-    n &= n-1;
-}
-
-
-    cout << ans<<endl;
+    cout << dp2[n2]-dp2[n1-1]<<endl;
     
     
 }
@@ -46,6 +40,29 @@ int32_t main(){
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);cout.tie(NULL);
     int t=1;
+
+    int i=1;
+    int j=0;
+
+    dp[0]=0;
+    dp2[0]=0;
+
+    int chunk = 1;
+    while(i<N){
+
+        for(int k=0;k<chunk && i<N;k++,i++){
+
+            dp[i] = dp[k]+1;
+            dp2[i]=dp2[i-1]+dp[i];
+            
+        }
+
+        chunk *= 2;
+    }
+
+
+    
+
     cin >>t;    
     while (t--)Muneer();
     return 0;

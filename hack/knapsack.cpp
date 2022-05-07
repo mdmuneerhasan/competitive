@@ -1,7 +1,7 @@
 /* This code is submitted by Muneer Hasan
 * Computer-scince student ( @ Jamia Millia Islamia : New Delhi)
 * Email : md.muneerhasan@gmail.com
-* 07:19:59 Tuesday 03-May:2022*/
+* 14:26:58 Thursday 28-April:2022*/
 #include<bits/stdc++.h>
 using namespace std;
 #define int             long long int
@@ -25,28 +25,48 @@ vector<int> vec1,vec2,vec3,primes;
 int row,col;vector<vector<int > > vec;
 int n=0,m=0,k=0,n1=0,n2=0,n3=0,stt=0,ent=0,q=0,qry=0;
 string s, s1 ,s2;
+unordered_map<int,int> dp[1000];
+int solve(int ind,int w){
+	if(ind==n1){
+		return 0;
+	}
 
-void Muneer(){
-    int ans=0,cnt=0,x=0,y=0,z=0,a=0,b=0,c=0;
-    
-    cin >> n;
+	if(dp[ind][w])return dp[ind][w];
 
+	int a=0;
+	if(w>=vec1[ind]){
+		a = solve(ind+1,w-vec1[ind])+vec2[ind];
+	}
 
-while(n){
-    ans++;
-    n &= n-1;
+	return dp[ind][w] = max(a,solve(ind+1,w));
+
 }
+void Muneer(){
+	int ans=0,cnt=0,x=0,y=0,z=0,a=0,b=0,c=0;
+	
+	cin >>n1>>k;
+	vec1.clear();
+	vec1.resize(n1,0);
+	for(int q=0;q<n1;q++){
+	  cin >> vec1[q];
+	}
 
+	n2=n1;
+	vec2.clear();
+	vec2.resize(n2,0);
+	for(int q=0;q<n2;q++){
+	  cin >> vec2[q];
+	}
 
-    cout << ans<<endl;
-    
-    
+	cout << solve(0,k)<<endl;
+	
+	
 }
 int32_t main(){
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);cout.tie(NULL);
-    int t=1;
-    cin >>t;    
-    while (t--)Muneer();
-    return 0;
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL);cout.tie(NULL);
+	int t=1;
+	// cin >>t;    
+	while (t--)Muneer();
+	return 0;
 }

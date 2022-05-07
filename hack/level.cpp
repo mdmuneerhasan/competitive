@@ -1,7 +1,7 @@
 /* This code is submitted by Muneer Hasan
 * Computer-scince student ( @ Jamia Millia Islamia : New Delhi)
 * Email : md.muneerhasan@gmail.com
-* 07:19:59 Tuesday 03-May:2022*/
+* 16:00:20 Wednesday 23-March:2022*/
 #include<bits/stdc++.h>
 using namespace std;
 #define int             long long int
@@ -25,28 +25,62 @@ vector<int> vec1,vec2,vec3,primes;
 int row,col;vector<vector<int > > vec;
 int n=0,m=0,k=0,n1=0,n2=0,n3=0,stt=0,ent=0,q=0,qry=0;
 string s, s1 ,s2;
+struct Node{
+    Node * l;
+    Node * r;
+    int val;
 
+};
+Node * build(){
+    Node * x = new Node();
+    cin >> x->val;
+    string s;
+    cin >> s;
+    if(s=="true"){
+        x->l = build();
+    }
+    cin >> s;
+    if(s=="true"){
+        x->r = build();
+    }
+
+
+    return x;
+}
+map<int,vector<int > > dp;
+void print(Node * r,int le=0){
+    if(r==NULL){
+        return;
+    }
+    print(r->l,le+1);
+
+    dp[le].push_back(r->val);
+    print(r->r,le+1);
+
+}
 void Muneer(){
     int ans=0,cnt=0,x=0,y=0,z=0,a=0,b=0,c=0;
+    Node * root = build();
     
-    cin >> n;
+    print(root);
 
+    for(auto x:dp){
+        if(x.first%2)reverse(x.second.begin(),x.second.end());
+        for(int i=0;i<x.second.size();i++){
+            cout <<x.second[i] << " ";
+        }
 
-while(n){
-    ans++;
-    n &= n-1;
-}
-
-
-    cout << ans<<endl;
-    
+        
+        
+    }
+    cout <<endl;
     
 }
 int32_t main(){
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);cout.tie(NULL);
     int t=1;
-    cin >>t;    
+    // cin >>t;    
     while (t--)Muneer();
     return 0;
 }

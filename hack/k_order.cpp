@@ -1,7 +1,7 @@
 /* This code is submitted by Muneer Hasan
 * Computer-scince student ( @ Jamia Millia Islamia : New Delhi)
 * Email : md.muneerhasan@gmail.com
-* 07:19:59 Tuesday 03-May:2022*/
+* 14:35:12 Thursday 28-April:2022*/
 #include<bits/stdc++.h>
 using namespace std;
 #define int             long long int
@@ -25,28 +25,66 @@ vector<int> vec1,vec2,vec3,primes;
 int row,col;vector<vector<int > > vec;
 int n=0,m=0,k=0,n1=0,n2=0,n3=0,stt=0,ent=0,q=0,qry=0;
 string s, s1 ,s2;
+string maxOf(string a,string b){
+	if(a.size()>=b.size())return a ;
+	return b;
 
-void Muneer(){
-    int ans=0,cnt=0,x=0,y=0,z=0,a=0,b=0,c=0;
-    
-    cin >> n;
-
-
-while(n){
-    ans++;
-    n &= n-1;
 }
+void Muneer(){
+	int ans=0,cnt=0,x=0,y=0,z=0,a=0,b=0,c=0;
 
 
-    cout << ans<<endl;
-    
-    
+	cin >>n1>>n2>>k;
+	vec1.clear();
+	vec1.resize(n1,0);
+	for(int q=0;q<n1;q++){
+	  cin >> vec1[q];
+	}
+
+
+	vec2.clear();
+	vec2.resize(n2,0);
+	for(int q=0;q<n2;q++){
+	  cin >> vec2[q];
+	}
+
+
+	int dp[n1+1][n2+1];
+
+    for(int i=0;i<=n1;i++){
+        dp[i][0]=0;
+        
+    }
+    for(int i=0;i<=n2;i++){
+        dp[0][i]=0;
+        
+    }
+
+
+	for(int i=0;i<n1;i++){
+		for(int j=0;j<n2;j++){
+		
+			if(vec1[i]==vec2[j]){
+				dp[i+1][j+1]=dp[i][j]+1;
+			}else{
+
+					dp[i+1][j+1] = max(dp[i+1][j],dp[i][j+1]);
+
+				
+			}
+			
+		}
+	}
+
+
+	cout << min(min(n1,n2),dp[n1][n2]+k)<<endl;
+	
 }
 int32_t main(){
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);cout.tie(NULL);
-    int t=1;
-    cin >>t;    
-    while (t--)Muneer();
-    return 0;
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL);cout.tie(NULL);
+	int t=1;
+	// cin >>t;    
+	while (t--)Muneer();
+	return 0;
 }

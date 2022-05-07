@@ -1,7 +1,7 @@
 /* This code is submitted by Muneer Hasan
 * Computer-scince student ( @ Jamia Millia Islamia : New Delhi)
 * Email : md.muneerhasan@gmail.com
-* 07:19:59 Tuesday 03-May:2022*/
+* 02:32:34 Sunday 27-March:2022*/
 #include<bits/stdc++.h>
 using namespace std;
 #define int             long long int
@@ -25,28 +25,78 @@ vector<int> vec1,vec2,vec3,primes;
 int row,col;vector<vector<int > > vec;
 int n=0,m=0,k=0,n1=0,n2=0,n3=0,stt=0,ent=0,q=0,qry=0;
 string s, s1 ,s2;
-
-void Muneer(){
-    int ans=0,cnt=0,x=0,y=0,z=0,a=0,b=0,c=0;
+struct Node{
+    int data;
+    Node * l , * r;
+    Node(int l){
+        data = l;
+        this->l=NULL;
+        this->r = NULL;
+    }
+};
+map<int,pair<int,int > > dp;
+Node * build(Node * root){
     
-    cin >> n;
+    queue<Node *> q;
+    q.push(root);
+    int l,r;
+    while(!q.empty()){
+        auto x = q.front();
+        q.pop();
+        cin >> l >> r;
+      // db(l,r);
+        if(l!=-1){
+            x->l=new Node(l);
+            q.push(x->l);
+        }
+        if(r!=-1){
+            x->r=new Node(r);
+            q.push(x->r);
+        }
 
+    }
 
-while(n){
-    ans++;
-    n &= n-1;
+    return root;
 }
-
-
-    cout << ans<<endl;
+void print(Node * root,int lev=0,int d=0){
     
+    
+    if(root == NULL)return;
+    if(dp.count(lev)){
+        if(d<=dp[lev].second){
+            dp[lev].first=root->data;
+            dp[lev].second = d;
+        }
+    }else{
+    dp[lev].first=root->data;
+    dp[lev].second = d;
+
+    }
+
+    print(root->l,lev-1,d+1);
+    print(root->r,lev+1,d+1);
+
+
+}
+void Muneer(){
+    int x;
+    
+    cin >> x;
+
+    Node * root = build(new Node(x));
+
+  
+    print(root);
+    for(auto x:dp){
+        cout << x.second.first <<" ";
+    }
     
 }
 int32_t main(){
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);cout.tie(NULL);
     int t=1;
-    cin >>t;    
+    // cin >>t;    
     while (t--)Muneer();
     return 0;
 }
